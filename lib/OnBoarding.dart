@@ -31,7 +31,7 @@ class _OnBoardingState extends State<OnBoarding> {
                         Transform.translate(
                           child: Icon(
                             Icons.account_balance,
-                            size: 100,
+                            size: 120,
                             color: Colors.white,
                           ),
                           offset: Offset(0, -100),
