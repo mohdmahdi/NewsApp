@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newa_app/screens/OnBoarding.dart';
 import 'screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:newa_app/Utilities/app_theme.dart';
 
 main()  async {
 
@@ -28,6 +29,7 @@ class NewsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: AppTheme.appTheme,
       home: this._screen,
     );
   }
