@@ -20,6 +20,12 @@ class _Home_screenState extends State<Home_screen> with SingleTickerProviderStat
   }
 
   @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
