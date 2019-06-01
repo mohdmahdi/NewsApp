@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:newa_app/models/nav_menu.dart';
+import 'package:newa_app/screens/headline_news.dart';
+import 'package:newa_app/screens/home_screen.dart';
+
 
 class navigationDrawer extends StatefulWidget {
   @override
@@ -6,6 +10,12 @@ class navigationDrawer extends StatefulWidget {
 }
 
 class _navigationDrawerState extends State<navigationDrawer> {
+
+  List<NavMenuItem>  navigationMenu = [
+    NavMenuItem("Explore", () => Home_screen()),
+    NavMenuItem("Headlines News", ()=> HeadLineNews()),
+  ];
+
   List<String> navMenu = [
     'Explore',
     'Headlines News',
@@ -27,7 +37,7 @@ class _navigationDrawerState extends State<navigationDrawer> {
               padding: const EdgeInsets.all(4),
               child: ListTile(
                 title: Text(
-                  navMenu[position],
+                  navigationMenu[position].title,
                   style: TextStyle(
                     color: Colors.grey.shade800,
                     fontSize: 20,
@@ -37,11 +47,15 @@ class _navigationDrawerState extends State<navigationDrawer> {
                   Icons.chevron_right,
                   color: Colors.grey.shade400,
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return navigationMenu[position].destination();
+                  }));
+                },
               ),
             );
           },
-          itemCount: navMenu.length,
+          itemCount: navigationMenu.length,
         ),
       ),
     );
